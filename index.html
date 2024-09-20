@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Resume Maker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loading-screen">
+        <h1 class="loading-text">Loading...</h1>
+        <div class="spinner"></div>
+    </div>
+
+    <div class="resume-maker" id="resume-maker">
+        <h1>Create Your Detailed Resume</h1>
+
+        <!-- Theme Selector -->
+        <div id="theme-section">
+            <h2>Select a Theme</h2>
+            <select id="theme-select">
+                <option value="default">Default</option>
+                <option value="modern">Modern</option>
+                <option value="sleek">Sleek</option>
+            </select>
+            <button onclick="goToDetails()">Continue</button>
+        </div>
+
+        <!-- Form Section -->
+        <form id="resume-form" style="display: none;">
+            <!-- Personal Information -->
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+
+            <!-- Skills -->
+            <div class="form-group">
+                <label for="skills">Skills (separate by commas):</label>
+                <textarea id="skills" rows="2" required></textarea>
+            </div>
+
+            <!-- Schools -->
+            <div class="form-group">
+                <label for="school-count">How many schools have you attended?</label>
+                <input type="number" id="school-count" min="1" required>
+                <button type="button" onclick="addSchoolFields()">Add Schools</button>
+                <div id="school-fields"></div>
+            </div>
+
+            <!-- Jobs -->
+            <div class="form-group">
+                <label for="job-count">How many past jobs have you had?</label>
+                <input type="number" id="job-count" min="0" required>
+                <button type="button" onclick="addJobFields()">Add Jobs</button>
+                <div id="job-fields"></div>
+            </div>
+
+            <!-- Activities -->
+            <div class="form-group">
+                <label for="activity-count">How many past activities have you participated in?</label>
+                <input type="number" id="activity-count" min="0" required>
+                <button type="button" onclick="addActivityFields()">Add Activities</button>
+                <div id="activity-fields"></div>
+            </div>
+
+            <!-- Hobbies -->
+            <div class="form-group">
+                <label for="hobbies">Hobbies (separate by commas):</label>
+                <textarea id="hobbies" rows="2" required></textarea>
+            </div>
+
+            <!-- Sports -->
+            <div class="form-group">
+                <label for="sports">Sports:</label>
+                <input type="text" id="sports" required>
+            </div>
+
+            <button type="submit">Generate Resume</button>
+        </form>
+
+        <!-- Resume Preview -->
+        <div id="resume-preview" style="display: none;">
+            <h2>Resume Preview</h2>
+            <div id="generated-resume"></div>
+            <button onclick="window.print()">Print / Save as PDF</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
